@@ -3,18 +3,44 @@ import React from 'react'
 import { SIZES, FONTS, COLORS, SHADOWS, assets  } from '../constants'
 import { Colors } from 'react-native/Libraries/NewAppScreen'
 
-export const NFTTitle = () => {
+export const NFTTitle = ({ title, subTitle, titleSize, subTitleSize}) => {
   return (
     <View>
-      <Text>NFTTitle</Text>
+      <Text style={{
+        fontFamily: FONTS.semiBold,
+        fontSize: titleSize,
+        color: COLORS.primary
+      }}
+      >
+        {title}
+      </Text>
+      <Text style={{
+        fontFamily: FONTS.regular,
+        fontSize: subTitleSize,
+        color: COLORS.primary
+      }}
+      >
+        {subTitle}
+      </Text>
     </View>
   )
 }
 
-export const EthPrice = () => {
+export const EthPrice = ({price}) => {
   return (
-    <View>
-      <Text>EthPrice</Text>
+    <View style={{ flexDirection: 'row', alignItems:'center'}}>
+      <Image
+        source={assets.eth}
+        resizeMode='contain'
+        style={{ width:20, height:20, marginRight:2}}
+      />
+      <Text style={{
+        fontFamily: FONTS.medium,
+        fontSize: SIZES.font,
+        color: COLORS.primary
+      }}>
+        {price}
+      </Text>
     </View>
   )
 }
@@ -69,7 +95,7 @@ export const EndDate = () => {
         fontSize: SIZES.medium,
         color: COLORS.primary
       }}>
-        12 h 30 m
+        12 h 30 m 
       </Text>
     </View>
   )
